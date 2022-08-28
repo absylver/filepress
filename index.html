@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>FilePress</title>
 	<link href="/js/pic.css" rel="stylesheet">
-	<link rel="stylesheet" href="/dist/css/style.css">
+	<link rel="stylesheet" href="/resources/css/style.css">
 	<script src="/js/scrollreveal.min.js"></script>
 	<style>
 
@@ -136,16 +136,15 @@
 			</main>
 
 		<footer class="site-footer text-light">
-			<div class="container">
-				<div class="site-footer-inner">
+
 					<div class="footer-copyright">&copy; Abraham Sylvester</div>
 		</footer>
 	</div>
 
-	<script src="/dist/js/main.min.js"></script>
-	<script src="/dist/js/jszip.min.js"></script>
-	<script src="/dist/js/FileSaver.js"></script>
-	<script src="/dist/js/JCompressor.js"></script>
+	<script src="/resources/js/main.min.js"></script>
+	<script src="/resources/js/jszip.min.js"></script>
+	<script src="/resources/js/FileSaver.js"></script>
+	<script src="/resources/js/JCompressor.js"></script>
 	<script>
 		document.getElementById("fileinput").addEventListener("change", inputchange)
 
@@ -175,7 +174,7 @@
 					}
 				},
 				ChangeBefore: function () {
-					loadingDom.innerHTML = "处理中······";
+					loadingDom.innerHTML = "Loading······";
 				},
 				ChangeAfter: function () {
 					loadingDom.innerHTML = "";
