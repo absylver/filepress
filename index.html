@@ -1,187 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>FilePress</title>
-	<link href="/js/pic.css" rel="stylesheet">
-	<link rel="stylesheet" href="/resources/css/style.css">
-	<script src="/js/scrollreveal.min.js"></script>
-	<style>
-
-		input[type="file"] {
-			color: transparent;
-		}
-
-		.inputstyle {
-			width: 144px;
-			height: 41px;
-			cursor: pointer;
-			font-size: 30px;
-			outline: medium none;
-			position: absolute;
-			filter: alpha(opacity=0);
-			-moz-opacity: 0;
-			opacity: 0;
-			left: 0px;
-			top: 0px;
-			display: inline-block;
-			max-width: 750px;
-		}
-
-
-		select {
-			border: solid 1px #888;
-			border-radius: 5px;
-			padding: 10px;
-		}
-
-		#fileinput {
-			border: solid 1px #888;
-			width: 500px;
-			border-radius: 5px;
-			padding: 10px;
-		}
-
-		#downloadBtn {
-			background-color: #1be608;
-			border: solid 1px #e6e6e6;
-			color: #FFF !important;
-			display: inline-block;
-			width: 170px;
-			padding: 2px;
-			border-radius: 5px;
-			cursor: pointer;
-			outline: none;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File<bold>Press</bold></title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
-<body class="is-boxed has-animations">
-	<div class="body-wrap boxed-container">
-		<header class="site-header">
-			<div class="container">
-				<div class="site-header-large-bg"><span></span></div>
-				<div class="site-header-inner">
-					<div class="brand header-brand">
-						<h1 class="m-0">
-							<a href="#">
-
-							</a>
-						</h1>
-					</div>
-				</div>
-			</div>
-		</header>
-
-
-			<main>
-				<section class="hero">
-					<div class="container">
-						<div class="hero-inner">
-							<div class="hero-copy">
-								<div class="container-sm">
-									<h1 class="hero-title h2-mobile mt-0 is-revealing"><img src="/filepess.png"></h1>
-									<p class="hero-paragraph is-revealing">This FilePress uses a smart loseless
-										compression algorithms to shrink JPEG, GIF and PNG images to the minimum
-										possible size while keeping the required level of quality.
-
-										Upload up to 10 images. Wait for the compression to finish. Click thumbnails in
-										the queue for quality setting.
-										You can use the slider to control the compression level and mouse/gestures to
-										compare images.</p>
-									<div>
-										<div class="configuration">
-											<span>Compression Ratio：</span>
-											<select id="quality">
-												<option value="0.8">20%</option>
-												<option value="0.6">40%</option>
-												<option value="0.4">60%</option>
-												<option value="0.2">80%</option>
-											</select> &nbsp;&nbsp;&nbsp;
-											<span>Maximum width：</span>
-											<select id="maxwidth">
-												<option value="750">750</option>
-												<option value="640">640</option>
-												<option value="375">375</option>
-												<option value="320">320</option>
-											</select> px
-										</div>
-										<br />
-									</div>
-									<div class="hero-form newsletter-form field field-grouped is-revealing">
-										<div class="control control-expanded">
-											<div class=" button button-primary button-block button-shadow">
-												<div class="">Upload image</div>
-												<input type="file" class="inputstyle" multiple="multiple" id="fileinput"
-													ref="input">
-											</div>
-										</div>
-										<div class="control">
-											<button type="button" id="downloadBtn"
-												class=" button  button-block button-shadow">Download Compressed</button>
-										</div>
-									</div>
-								</div>
-								<div id="loading"></div>
-								<br>
-								<div id="imgbox" class="frbkw"></div>
-							</div>
-
-						</div>
-					</div>
-				</section>
-			</main>
-
-		<footer class="site-footer text-light">
-
-					<div class="footer-copyright">&copy; Abraham Sylvester</div>
-		</footer>
-	</div>
-
-	<script src="/resources/js/main.min.js"></script>
-	<script src="/resources/js/jszip.min.js"></script>
-	<script src="/resources/js/FileSaver.js"></script>
-	<script src="/resources/js/JCompressor.js"></script>
-	<script>
-		document.getElementById("fileinput").addEventListener("change", inputchange)
-
-		function inputchange(_this) {
-			var _this = this;
-			var quality = document.getElementById("quality").value;
-			var maxWidth = document.getElementById("maxwidth").value;
-			var loadingDom = document.getElementById("loading");
-			JCompressor(_this, {
-				Quality: Number(quality),
-				MaxWidth: Number(maxWidth),
-				PreviewContainer: "imgbox",
-				FileLoad: function (filedata) {
-					_this.value = "";
-				},
-				NeedDownload: true,
-				DownloadLoad: function (nextfn) {
-					var btnDom = document.getElementById("downloadBtn");
-					btnDom.style.color = "white";
-					btnDom.style.borderColor = "#6a62f0";
-					btnDom.style.backgroundColor = "#6a62f0";
-					btnDom.onclick = function () {
-						nextfn();
-						btnDom.onclick = null;
-						btnDom.style.color = "";
-						btnDom.style.borderColor = "";
-					}
-				},
-				ChangeBefore: function () {
-					loadingDom.innerHTML = "Loading······";
-				},
-				ChangeAfter: function () {
-					loadingDom.innerHTML = "";
-				}
-			})
-		}
-	</script>
+<body>
+    <div class="container">
+        <div class="input">
+            <button class="upload">Upload</button>
+            <ul class="metadata">
+                <li>Name: <span></span></li>
+                <li>Dimension: <span></span></li>
+                <li>Size: <span></span></li>
+            </ul>
+        </div>
+        <div class="output">
+            <button class="download">Download</button>
+            <ul class="metadata">
+                <li>Compressed: <span></span></li>
+                <li>Dimension: <span></span></li>
+                <li>Size: <span></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="track"></div>
+        <input type="range" class="input-value" min="10" value="30" max="99" step="any">
+    </div>
+    <div class="preview-container">
+        <input type="range" id="slider-input" min="0" max="100" step="any">
+        <div class="compressed">Compressed</div>
+        <div class="original">Original</div>
+        <div class="bottom">
+            <img src="" alt="">
+        </div>
+        <div class="top">
+            <img src="" alt="">
+        </div>
+    </div>
+    <input type="file" id="hidden-button" style="display: none;" accept="image/*">
+<script src="script.js"></script>
+<script src="compressor.js"></script>
 </body>
-
 </html>
