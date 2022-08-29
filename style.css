@@ -7,6 +7,14 @@ body{
     background-color: #6165F8;
     height: 1200px;
 }
+img{
+    width: 70%;
+    margin: 0 auto;
+}
+
+p{
+    color: aliceblue;
+}
 .container{
     background-color: #ffffff17;
     border-radius: 12px;
@@ -17,7 +25,7 @@ body{
 .upload,
 .download{
     border: 0px;
-    padding: 10px 30px;
+    padding: 15px 30px;
     font-family: 'Noto Sans', sans-serif;
     color: #6165F8;
     font-weight: 700;
@@ -26,8 +34,9 @@ body{
     cursor: pointer;
     outline: none;
 }
+
 .download{
-    margin-top: 40px;
+    margin-top: 30px;
     margin-bottom: 0px;
 }
 .upload:active,
@@ -138,8 +147,70 @@ body{
     position: absolute;
     z-index: -1;
 }
+
+/*
 .output,
 .progress,
 .preview-container{
     display: none;
-}
+}**/
+
+
+
+@media only screen and  (max-width: 500px){
+    *{
+    box-sizing: border-box;
+    }
+    body{
+        padding: 0;
+    }
+    .container1{
+    width: 100%;
+    width: auto;
+    padding: 0 20px!important; 
+    border: 1px solid black;
+    }
+    .container{
+    border: 1px solid black;
+    padding: 20px 40px;
+    }
+    .output,.input{
+    display: block;
+    border: 1px solid black;
+    width: 80%;
+    height: auto;
+    padding: 5px;
+    margin: auto;
+    box-sizing: content-box;
+    }
+    .download,.upload{
+        margin: auto!important;
+        display: inline-block;
+        width: 90%;
+    }
+    .metadata{
+        list-style: circle;
+        text-align: left;
+        margin: auto;
+        padding: 5px 2px;
+        display: block;
+        width: 90%;
+        
+    }
+    .metadata li{
+        border: 1px solid red;
+        display: inline-block;
+        width: 100%;
+    }
+    img{
+        width: 100%;
+        height: auto
+    }
+    .preview-container {
+    width: calc(100% - 10%);
+    position: relative;
+    margin: 0px 11px;
+    margin-top: 60px;
+    font-weight: 700;
+    
+} 
