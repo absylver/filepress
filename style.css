@@ -143,7 +143,7 @@ p{
     height: 100%;
 }
 .bottom img{
-    width: 100%;
+    min-width: 300px;
     position: absolute;
     z-index: -1;
 }
@@ -174,7 +174,6 @@ p{
     }
     .output,.input{
     display: block;
-    border: 1px solid black;
     width: 80%;
     height: auto;
     padding: 5px;
